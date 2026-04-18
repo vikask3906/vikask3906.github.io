@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikas | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: #111827;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin: 0 0 20px 0;
+        }
+
+        .links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #111827;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Hi, I'm Vikas.</h1>
+            <p class="subtitle">Computer Science Student @ IIT Guwahati</p>
+            <div class="links">
+                <a href="https://github.com/vikask3906" target="_blank">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Resume</a>
+                <a href="mailto:your-email@example.com">Email</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <div class="about-text">
+                <p>
+                    I am a Computer Science undergraduate at the Indian Institute of Technology Guwahati (IITG) with a 9.35 GPA. My technical focus lies at the intersection of high-performance system programming, computer architecture, and algorithm design. 
+                </p>
+                <p>
+                    I am an avid competitive programmer, utilizing C++ to tackle complex algorithmic problems involving dynamic programming and bit manipulation. Beyond algorithms, I enjoy building robust, low-level systems—from thread-safe concurrency libraries to hardware design—and integrating modern cloud-based AI solutions into functional applications.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>5-Stage Pipelined Processor</h3>
+                    <p>Designed and implemented a 5-stage pipelined processor for FPGA deployment. Managed complex digital logic constraints, forwarding paths, and data hazard resolutions.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Verilog</span>
+                        <span class="tag">FPGA</span>
+                        <span class="tag">Computer Architecture</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Azure AI Crisis Response App</h3>
+                    <p>Built a disaster management application utilizing an Azure-based AI stack. Integrated Azure Translator, Search, and multi-agent systems to optimize crisis response logic and resource allocation.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Azure AI Foundry</span>
+                        <span class="tag">Multi-Agent Systems</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Thread-Safe Queue Library</h3>
+                    <p>Developed a high-performance concurrency library for the IITG Coding Club. Implemented lock-free data structures and managed atomic memory ordering for thread safety.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Advanced C++</span>
+                        <span class="tag">Concurrency</span>
+                        <span class="tag">Multi-threading</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Microsoft AI Unlocked Hackathon</h3>
+                    <p>Competed and placed in the top 250 teams nationally, developing innovative solutions under tight deadlines alongside a collaborative team.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Hackathon</span>
+                        <span class="tag">AI Integration</span>
+                        <span class="tag">Team Collaboration</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
