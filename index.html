@@ -3,122 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikas | Portfolio</title>
+    <title>Vikas Kathuria | Portfolio</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --bg-color: #f9fafb;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-main: #111827;
+            --text-body: #374151;
+            --text-muted: #6b7280;
+            --bg: #f9fafb;
             --card-bg: #ffffff;
-            --border-radius: 8px;
+            --border: #e5e7eb;
+            --chip-bg: #eff6ff;
+            --radius: 10px;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+        .container { max-width: 920px; margin: 0 auto; padding: 48px 20px; }
 
-        header {
-            margin-bottom: 50px;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            color: #111827;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin: 0 0 20px 0;
-        }
+        header { margin-bottom: 48px; border-bottom: 2px solid var(--border); padding-bottom: 30px; }
+        h1 { font-size: 2.6rem; margin: 0 0 10px 0; }
+        .subtitle { font-size: 1.25rem; color: var(--text-muted); margin: 0 0 20px 0; }
 
         .links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
+            display: inline-block; margin-right: 16px; color: var(--primary);
+            text-decoration: none; font-weight: 600;
         }
+        .links a:hover { text-decoration: underline; }
 
-        .links a:hover {
-            text-decoration: underline;
-        }
+        section { margin-bottom: 52px; }
+        h2 { font-size: 1.55rem; margin-bottom: 20px; }
 
-        section {
-            margin-bottom: 50px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: #111827;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
+        .about-text { font-size: 1.08rem; color: var(--text-body); line-height: 1.8; }
 
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 22px;
         }
 
         .project-card {
             background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease-in-out;
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -1px rgba(0,0,0,.05);
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
-
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 20px -6px rgba(37,99,235,.18);
+            border-color: #bfdbfe;
+        }
+        .project-card:focus-visible { outline: 3px solid #bfdbfe; outline-offset: 2px; }
+
+        .project-card h3 { margin: 0 0 6px 0; font-size: 1.22rem; }
+        .card-tagline { color: var(--text-muted); font-size: .9rem; margin: 0 0 12px 0; font-weight: 500; }
+        .project-card p.blurb { color: var(--text-body); font-size: .95rem; margin: 0 0 16px 0; flex-grow: 1; }
+
+        .metric-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+        .metric {
+            background: #ecfdf5; color: #047857; font-weight: 700;
+            font-size: .78rem; padding: 4px 9px; border-radius: 6px;
         }
 
-        .project-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.25rem;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
-            background-color: #eff6ff;
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            background-color: var(--chip-bg); color: var(--primary);
+            padding: 4px 10px; border-radius: 14px; font-size: .78rem; font-weight: 600;
         }
+
+        .card-footer {
+            margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .card-cta { color: var(--primary); font-weight: 600; font-size: .9rem; }
+        .repo-link { color: var(--text-muted); font-size: .85rem; text-decoration: none; font-weight: 600; }
+        .repo-link:hover { color: var(--primary); text-decoration: underline; }
+
+        /* ---------- Modal ---------- */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(17,24,39,.55);
+            display: none; align-items: flex-start; justify-content: center;
+            padding: 40px 16px; z-index: 100; overflow-y: auto;
+            backdrop-filter: blur(2px);
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--card-bg); border-radius: 14px; max-width: 760px; width: 100%;
+            padding: 36px; box-shadow: 0 24px 48px -12px rgba(0,0,0,.35);
+            animation: pop .2s ease;
+        }
+        @keyframes pop { from { transform: translateY(12px) scale(.98); opacity: 0; } to { transform: none; opacity: 1; } }
+
+        .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+        .modal-head h2 { margin: 0 0 4px 0; font-size: 1.7rem; }
+        .modal-tagline { color: var(--primary); font-weight: 600; margin: 0; }
+        .modal-close {
+            background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+            width: 38px; height: 38px; font-size: 1.3rem; cursor: pointer; color: var(--text-muted);
+            flex-shrink: 0; line-height: 1;
+        }
+        .modal-close:hover { background: #fee2e2; color: #b91c1c; border-color: #fecaca; }
+
+        .modal h4 { font-size: 1.02rem; margin: 26px 0 10px 0; color: var(--text-main); }
+        .modal p { color: var(--text-body); }
+        .modal ul { color: var(--text-body); padding-left: 20px; margin: 8px 0; }
+        .modal li { margin-bottom: 8px; }
+
+        .bench-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .9rem; }
+        .bench-table th, .bench-table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+        .bench-table th { color: var(--text-muted); font-weight: 600; }
+        .bench-table td.hl { color: #047857; font-weight: 700; }
+
+        .modal-actions { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+            padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: .95rem;
+        }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-ghost { background: var(--bg); color: var(--text-body); border: 1px solid var(--border); }
+        .btn-ghost:hover { background: #f3f4f6; }
+
+        footer { color: var(--text-muted); font-size: .85rem; text-align: center; padding-top: 10px; }
     </style>
 </head>
 <body>
@@ -128,10 +150,10 @@
             <h1>Hi, I'm Vikas.</h1>
             <p class="subtitle">Computer Science Student @ IIT Guwahati</p>
             <div class="links">
-                <a href="https://github.com/vikask3906" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/kathuria-vikas/">LinkedIn</a>
+                <a href="https://github.com/vikask3906" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/kathuria-vikas/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="#">Resume</a>
-                <a href="vikaskathuria.06@gmail.com">Email</a>
+                <a href="mailto:vikaskathuria.06@gmail.com">Email</a>
             </div>
         </header>
 
@@ -139,60 +161,193 @@
             <h2>About Me</h2>
             <div class="about-text">
                 <p>
-                    I am a Computer Science undergraduate at the Indian Institute of Technology Guwahati (IITG) in my second year. My technical focus lies at the intersection of high-performance system programming, computer architecture, and algorithm design. 
+                    I am a Computer Science undergraduate at the Indian Institute of Technology Guwahati (IITG) in my second year. My technical focus lies at the intersection of high-performance systems programming, AI infrastructure, and algorithm design.
                 </p>
                 <p>
-                    I am an avid competitive programmer, utilizing C++ to tackle complex algorithmic problems involving dynamic programming and bit manipulation. Beyond algorithms, I enjoy building robust, low-level systems—from thread-safe concurrency libraries to hardware design—and integrating modern cloud-based AI solutions into functional applications.
+                    I am an avid competitive programmer, using C++ to tackle algorithmic problems involving dynamic programming and bit manipulation. Beyond algorithms, I enjoy building robust low-level systems and the infrastructure around modern AI&mdash;from a family of lock-free concurrent queues, to a prefix-aware gateway for LLM inference clusters, to full-stack applications like an AI-powered exam-grading pipeline.
                 </p>
             </div>
         </section>
 
         <section>
             <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                
-                <div class="project-card">
-                    <h3>5-Stage Pipelined Processor</h3>
-                    <p>Designed and implemented a 5-stage pipelined processor for FPGA deployment. Managed complex digital logic constraints, forwarding paths, and data hazard resolutions.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Verilog</span>
-                        <span class="tag">FPGA</span>
-                        <span class="tag">Computer Architecture</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Azure AI Crisis Response App</h3>
-                    <p>Built a disaster management application utilizing an Azure-based AI stack. Integrated Azure Translator, Search, and multi-agent systems to optimize crisis response logic and resource allocation.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Azure AI Foundry</span>
-                        <span class="tag">Multi-Agent Systems</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Thread-Safe Queue Library</h3>
-                    <p>Developed a high-performance concurrency library for the IITG Coding Club. Implemented lock-free data structures and managed atomic memory ordering for thread safety.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Advanced C++</span>
-                        <span class="tag">Concurrency</span>
-                        <span class="tag">Multi-threading</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Microsoft AI Unlocked Hackathon</h3>
-                    <p>Competed and placed in the top 250 teams nationally, developing innovative solutions under tight deadlines alongside a collaborative team.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Hackathon</span>
-                        <span class="tag">AI Integration</span>
-                        <span class="tag">Team Collaboration</span>
-                    </div>
-                </div>
-
+            <p style="color:var(--text-muted); margin-top:-8px; font-size:.95rem;">Click any card to read the full breakdown.</p>
+            <div class="projects-grid" id="grid">
+                <!-- cards injected by JS -->
             </div>
         </section>
+
+        <footer>Built with plain HTML, CSS &amp; JS &middot; &copy; 2026 Vikas Kathuria</footer>
     </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="overlay" role="dialog" aria-modal="true">
+        <div class="modal" id="modal"></div>
+    </div>
+
+    <script>
+    const projects = [
+        {
+            id: "gateway",
+            title: "LLM Inference Gateway",
+            tagline: "Prefix-aware, OpenAI-compatible routing for LLM clusters",
+            repo: "https://github.com/vikask3906/llm-inference",
+            blurb: "An OpenAI-compatible gateway that routes each request to the GPU already holding the matching KV-cache prefix, so a cluster of LLM servers reuses cache instead of recomputing it — a standalone take on Google's GKE Inference Gateway.",
+            metrics: ["~2.4× cache hit rate", "−53% mean TTFT (real A40s)", "~52× throughput (Rust path)"],
+            tags: ["Python", "FastAPI", "Rust", "vLLM", "Kubernetes", "Prometheus"],
+            overview: "LLM inference is stateful: a Transformer's prompt prefill is cached in GPU memory as the KV cache, and engines like vLLM reuse it when a later request shares a prefix. But ordinary HTTP load balancers are stateless — round-robin sends a request to a different GPU, recomputing the identical prefix and duplicating VRAM. This gateway makes routing prefix-aware: it tracks which backend holds which prefix and routes for cache reuse, while spilling load when a node saturates.",
+            how: "Two layers of routing intelligence, scored by estimated time-to-first-token: (1) Prefix affinity — a path-compressed radix tree of token-block hashes maps each cached prefix to the backends holding it, enabling longest-prefix match rather than a coarse hash. (2) Load awareness — est_TTFT = queue_delay + prefill(uncached tokens), with a hard saturation cutoff and a least-loaded tiebreak, so a tiny shared prefix can't pin all traffic to one node. Hot prefixes replicate across nodes automatically.",
+            features: [
+                "Separate data plane (tenant → admit → block-hash → radix match → est-TTFT pick → stream) and control plane (scrape /metrics → reconcile load + health).",
+                "Multi-tenant fairness via per-tenant token buckets — a greedy tenant flooding at 10× quota can't starve a polite one.",
+                "Fault tolerance with circuit breaking & failover, plus full observability (structured logs + Prometheus metrics + traces).",
+                "Eight standalone extensions, each with its own benchmark: DAG scheduler, RAG chunk-affinity, admission control, prefill/decode disaggregation, multimodal media-affinity, cluster scaling, weighted fair queue, and agentic multi-turn session affinity."
+            ],
+            bench: {
+                caption: "Prefix-cache hit rate — independent per-backend cache models",
+                head: ["Strategy", "Uniform", "Skewed", "Load balance"],
+                rows: [
+                    ["round-robin", "40.5%", "62.0%", "even"],
+                    ["consistent-hash", "40.1%", "62.7%", "collapses to 1 node"],
+                    ["prefix-tree (this)", "99.3%", "99.3%", "even", true]
+                ]
+            },
+            note: "Validated on real vLLM 0.7.3 + 2× NVIDIA A40 GPUs (Qwen2.5-1.5B-Instruct): 53% lower mean TTFT at low load and +10 pp vLLM cache-hit rate. A full-parity Rust hot-path rewrite hits ~52× the throughput and ~33× lower p99 of the Python gateway."
+        },
+        {
+            id: "tsq",
+            title: "Thread-Safe Queue Library",
+            tagline: "A family of lock-free & wait-free queues in modern C++",
+            repo: "https://github.com/vikask3906/cpp_queue",
+            blurb: "A header-only C++20 library of six thread-safe queues — wait-free, lock-free, and blocking variants — unified behind a single policy-based template front-end. Developed under the Coding Club, IIT Guwahati.",
+            metrics: ["~40× throughput vs std::queue+mutex", ">1000× better p99.9 tail", "TSAN-clean CI"],
+            tags: ["C++20", "Lock-free", "Concurrency", "CMake", "GoogleTest", "TSAN"],
+            overview: "The C++ Standard Library's std::queue was never designed for concurrent access — it provides no atomicity guarantees and breaks under concurrent use with undefined behaviour. This project implements a family of concurrent queues that are safe by construction, targeting the producer–consumer abstraction found in OS schedulers, HFT pipelines, logging systems, and thread pools. The goal is not just correctness but performance: avoiding locks where possible, using cache-friendly layouts, and leveraging C++20 atomics with precise memory ordering.",
+            how: "A unified policy-based template front-end — tsfqueue::queue<T, MPMC, Bounded<1024>, LockFree> — composes via tag types and resolves to the underlying implementation at compile time with zero runtime overhead (proven by static_assert std::is_same_v). Under the hood sit six implementations selected by producer/consumer count and bounding.",
+            features: [
+                "Six queues: a wait-free SPSC ring buffer, a lock-free SPSC linked list, a block-linked SPSC variant, a Vyukov MPSC queue (single XCHG per push, wait-free producers), a Vyukov bounded MPMC ring with per-slot sequence numbers, and a blocking MPMC queue (split head/tail mutexes + condvar).",
+                "Race-freedom verified, not claimed: ThreadSanitizer-gated CI on every push, plus AddressSanitizer + UBSan jobs.",
+                "90 GoogleTest cases, all green, with multiset no-loss / no-duplication audits and a Watchdog thread for stalled progress; 170/170 stress runs passed locally.",
+                "Installable as a real library: find_package(tsq REQUIRED) → target_link_libraries(app PRIVATE tsq::tsq), verified by a CI smoke job."
+            ],
+            bench: {
+                caption: "vs std::queue + std::mutex (i5-12450HX, GCC 13.2 -O3)",
+                head: ["Metric", "std::queue+mutex", "This library"],
+                rows: [
+                    ["SPSC throughput (8B)", "121 ns/op", "3 ns/op", true],
+                    ["Median ping-pong latency", "13.7 µs", "200 ns", true],
+                    ["p99.9 tail latency", "862 µs", "500 ns", true]
+                ]
+            },
+            note: "Header-only, MIT-licensed, C++20. Algorithms reference Vyukov (1024cores), Cameron Desrochers (moodycamel), and Frasch (CppCon 2023)."
+        },
+        {
+            id: "gradeops",
+            title: "GradeOps",
+            tagline: "AI-powered, human-in-the-loop exam grading pipeline",
+            repo: "https://github.com/Jayansh805/gradeops",
+            blurb: "A full-stack system that transcribes and grades scanned handwritten exams at scale. An async FastAPI backend runs OCR and an agentic LLM grader against JSON rubrics; TAs review and override AI-proposed grades from a keyboard-driven React dashboard.",
+            metrics: ["OCR → LLM grading", "Semantic plagiarism detection", "CSV export for LMS"],
+            tags: ["Python", "FastAPI", "PostgreSQL", "React", "LangGraph", "Groq"],
+            overview: "GradeOps combines a robust asynchronous Python backend for Optical Character Recognition and agentic LLM evaluation with a sleek, keyboard-driven React dashboard. It lets Teaching Assistants rapidly review, override, and distribute AI-proposed grades for handwritten exams — saving large amounts of administrative time while keeping a human in the loop.",
+            how: "Instructors upload student PDFs plus a JSON rubric. The FastAPI backend schedules background jobs to crop questions, run OCR (local Qwen2-VL-2B or cloud Gemini 2.5 Flash Lite), and pass the text to a LangGraph + Groq (Llama-3.3-70B) agent for rubric evaluation. Plagiarism vectors are computed in parallel. TAs then review in a split-screen dashboard, and instructors export finalized grades as CSV.",
+            features: [
+                "Intelligent AI pipeline: messy handwritten PDFs → OCR → strict JSON-rubric evaluation via Groq's high-speed LPU inference.",
+                "Instructor portal: drag-and-drop uploads, a JSON rubric editor with templates, and a stats dashboard with one-click CSV exports.",
+                "TA review dashboard (HITL): a dark-mode, split-screen UI with keyboard shortcuts (A approve, O override, ↑↓ navigate) to finalize grades fast.",
+                "Semantic plagiarism detection: submissions are embedded and compared with cosine similarity; highly similar pairs are flagged with visual bars (red > 90%, amber > 75%).",
+                "Extensible storage: run fully locally or scale to AWS S3; JWT auth + role-based access, all containerized with Docker Compose."
+            ],
+            bench: null,
+            note: "Tech stack: Python 3.10+, FastAPI, PostgreSQL + SQLAlchemy (async), React 18 + Vite + Tailwind v4, LangChain / LangGraph, scikit-learn, Docker. A group project — repo hosted on a teammate's account."
+        }
+    ];
+
+    const grid = document.getElementById("grid");
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+
+    function tableHTML(b) {
+        if (!b) return "";
+        const head = "<tr>" + b.head.map(h => `<th>${h}</th>`).join("") + "</tr>";
+        const rows = b.rows.map(r => {
+            const hl = r[r.length - 1] === true;
+            const cells = (hl ? r.slice(0, -1) : r);
+            return "<tr>" + cells.map((c, i) =>
+                `<td class="${hl && i > 0 ? 'hl' : ''}">${c}</td>`).join("") + "</tr>";
+        }).join("");
+        return `<h4>${b.caption}</h4><table class="bench-table"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+    }
+
+    function cardHTML(p) {
+        return `
+        <div class="project-card" tabindex="0" data-id="${p.id}" role="button" aria-label="Open details for ${p.title}">
+            <h3>${p.title}</h3>
+            <p class="card-tagline">${p.tagline}</p>
+            <p class="blurb">${p.blurb}</p>
+            <div class="metric-row">${p.metrics.map(m => `<span class="metric">${m}</span>`).join("")}</div>
+            <div class="tech-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            <div class="card-footer">
+                <span class="card-cta">Read more →</span>
+                <a class="repo-link" href="${p.repo}" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a>
+            </div>
+        </div>`;
+    }
+
+    function modalHTML(p) {
+        return `
+        <div class="modal-head">
+            <div>
+                <h2>${p.title}</h2>
+                <p class="modal-tagline">${p.tagline}</p>
+            </div>
+            <button class="modal-close" aria-label="Close" onclick="closeModal()">×</button>
+        </div>
+        <div class="metric-row" style="margin-top:18px;">${p.metrics.map(m => `<span class="metric">${m}</span>`).join("")}</div>
+        <h4>Overview</h4>
+        <p>${p.overview}</p>
+        <h4>How it works</h4>
+        <p>${p.how}</p>
+        <h4>Key features</h4>
+        <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
+        ${tableHTML(p.bench)}
+        ${p.note ? `<h4>Notes</h4><p>${p.note}</p>` : ""}
+        <h4>Tech stack</h4>
+        <div class="tech-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+        <div class="modal-actions">
+            <a class="btn btn-primary" href="${p.repo}" target="_blank" rel="noopener">View on GitHub ↗</a>
+            <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+        </div>`;
+    }
+
+    grid.innerHTML = projects.map(cardHTML).join("");
+
+    function openModal(id) {
+        const p = projects.find(x => x.id === id);
+        if (!p) return;
+        modal.innerHTML = modalHTML(p);
+        overlay.classList.add("open");
+        modal.scrollTop = 0;
+        document.body.style.overflow = "hidden";
+    }
+    function closeModal() {
+        overlay.classList.remove("open");
+        document.body.style.overflow = "";
+    }
+
+    grid.addEventListener("click", e => {
+        const card = e.target.closest(".project-card");
+        if (card) openModal(card.dataset.id);
+    });
+    grid.addEventListener("keydown", e => {
+        if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("project-card")) {
+            e.preventDefault();
+            openModal(e.target.dataset.id);
+        }
+    });
+    overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+    </script>
 
 </body>
 </html>
